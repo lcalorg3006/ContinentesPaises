@@ -9,19 +9,16 @@ import CountriesScreen from './src/screen.tsx/ContriesScreen';
 import CountryDetailsScreen from './src/screen.tsx/CountryDetailsScreen';
 
 const Stack = createStackNavigator();
-
 const App = () => {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Continents">
-          <Stack.Screen name="Continents" component={ContinentsScreen} />
-          <Stack.Screen name="Countries" component={CountriesScreen} />
-          <Stack.Screen name="CountryDetails" component={CountryDetailsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
-  );
+  return (<Provider store={store}>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Continents">
+        <Stack.Screen name="Continents" component={ContinentsScreen} />
+        <Stack.Screen name="Countries" component={CountriesScreen} />
+        <Stack.Screen name="CountryDetails" component={CountryDetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  </Provider>);
 };
 
 export default App;

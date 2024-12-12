@@ -1,4 +1,3 @@
-// src/servicios/continentesApi.ts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const continentesApi = createApi({
@@ -6,13 +5,13 @@ export const continentesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://restcountries.com/v3.1/' }),
   endpoints: (builder) => ({
     getContinents: builder.query({
-      query: () => 'all',
+      query: () => 'all', // Asegúrate de que esta ruta sea correcta
     }),
     getCountriesByContinent: builder.query({
-      query: (continent) => `region/${continent}`,
+      query: (continent) => `region/${continent}`, // Asegúrate de que esta ruta sea correcta
     }),
     getCountryDetails: builder.query({
-      query: (country) => `name/${country}`,
+      query: (country) => `name/${country}`, // Asegúrate de que esta ruta sea correcta
     }),
   }),
 });
