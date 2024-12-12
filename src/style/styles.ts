@@ -10,7 +10,7 @@ const styles = {
     alignItems: 'center',
   },
   text: {
-    color: colorScheme === 'dark' ? 'white' : 'black',  // Cambiar el color del texto según el modo
+    color: colorScheme === 'dark' ? 'white' : 'black',  
     fontSize: 20,
     textAlign: 'center',
   },
