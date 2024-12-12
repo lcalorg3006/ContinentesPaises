@@ -5,16 +5,15 @@ export const continentesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://restcountries.com/v3.1/' }),
   endpoints: (builder) => ({
     getContinents: builder.query({
-      query: () => 'all', // Asegúrate de que esta ruta sea correcta
+      query: () => 'all?fields=name, capital,region,languages,flags,maps,lating', 
     }),
     getCountriesByContinent: builder.query({
-      query: (continent) => `region/${continent}`, // Asegúrate de que esta ruta sea correcta
+      query: (continent) => `region/${continent}`, 
     }),
     getCountryDetails: builder.query({
-      query: (country) => `name/${country}`, // Asegúrate de que esta ruta sea correcta
+      query: (country) => `name/${country}`, 
     }),
   }),
 });
 
-// Exportar los hooks generados automáticamente
 export const { useGetContinentsQuery, useGetCountriesByContinentQuery, useGetCountryDetailsQuery } = continentesApi;
