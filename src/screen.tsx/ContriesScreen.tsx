@@ -4,8 +4,8 @@ import { FlatList, Text, View, TouchableOpacity, Image, StyleSheet } from 'react
 import { useGetCountriesByContinentQuery } from '../services/continentsApi';
 
 const CountriesScreen = ({ route, navigation }: any) => { 
-  const { continente } = route.params;  // Recibe el continente desde la navegación
-  const { data, error, isLoading } = useGetCountriesByContinentQuery(continente);  // Query de países por continente
+  const { continente } = route.params;  
+  const { data, error, isLoading } = useGetCountriesByContinentQuery(continente);  
 
   if (isLoading) return <Text>Cargando...</Text>; 
   if (error) return <Text>Error al cargar los países.</Text>;
@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10,
   },
-  // Estilos adicionales según lo necesites
 });
 
 export default CountriesScreen;

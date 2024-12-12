@@ -11,7 +11,7 @@ export const continentesApi = createApi({
       query: (continent) => `region/${continent}`, 
     }),
     getCountryDetails: builder.query({
-      query: (country) => `name/${country}`, 
+      query: (country) => `name/${country}?fullText=true`, 
     }),
   }),
 });

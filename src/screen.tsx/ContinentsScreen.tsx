@@ -2,7 +2,6 @@ import React from 'react';
 import { FlatList, Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useGetContinentsQuery } from '../services/continentsApi';
 
-// Define the type of the continent data
 interface Country {
   region: string;
 }
@@ -16,23 +15,22 @@ const ContinentsScreen = ({ navigation }: any) => {
 
   if (error) {
     console.error('Error al cargar los continentes:', error);
-    const errorMessage = 'error' in error ? error.error : 'Error desconocido'; // Accessing error property
+    const errorMessage = 'error' in error ? error.error : 'Error desconocido';
     return <Text>Error al cargar los continentes: {errorMessage}</Text>;
   }
 
-  // Ensure that data is correctly typed and handle undefined or null values
   const continents: string[] = Array.from(new Set(data?.map((country: Country) => country.region) ?? [])); 
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={continents} // We are passing an array of strings now
+        data={continents}
         renderItem={({ item }: { item: string }) => (
           <TouchableOpacity onPress={() => navigation.navigate('Countries', { continente: item })}>
             <Text style={styles.text}>{item}</Text>
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => item} // Ensure 'item' is unique
+        keyExtractor={(item) => item}
       />
     </View>
   );
@@ -47,22 +45,22 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     color: 'white',
-    fontSize: 24, // Increased font size for loading text
+    fontSize: 24,
     textAlign: 'center',
   },
   errorText: {
     color: 'red',
-    fontSize: 24, // Increased font size for error text
+    fontSize: 24, 
     textAlign: 'center',
   },
   text: {
     color: 'white',
-    fontSize: 24, // Increased font size for continent names
+    fontSize: 24, 
     textAlign: 'center',
-    paddingVertical: 15, // Added vertical padding for separation
+    paddingVertical: 15, 
   },
   listContainer: {
-    padding: 20, // Added padding to the list container
+    padding: 20, 
   },
 });
 
